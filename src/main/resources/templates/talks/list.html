@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Talks Information</title>
+</head>
+<body>
+<H1>Talks List</H1>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="talk : ${talks}">
+        <td th:text="${talk.id}">1</td>
+        <td th:text="${talk.talkNumber}">Spring Boot</td>
+        <td th:text="${talk.talkName}">Spring Boot</td>
+        <!-- Assuming this is the problematic line in the template -->
+        <td><span th:text="${talk.speakers != null ? talk.speakers.firstName : ''}"></span></td>
+    </tr>
+</table>
+
+</body>
+</html>
